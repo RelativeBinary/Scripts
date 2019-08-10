@@ -1,5 +1,9 @@
 
 HotKeySet("{ESC}", "Terminate")
+
+Global $cursorAX = 960, $cursorAY = 551
+Global $i = 0
+Global $j = 1
 #cs
 Func Jump()
 	Send("{SPACE down}")
@@ -36,15 +40,15 @@ Func DestroyBlock()
 EndFunc
 
 Func CorseToDirt()
-	Send("2") ;switch to corse dirt
+	Send($j) ;switch to corse dirt
 	Sleep(200)
 	JumpPlace()
 	Sleep(200)
-	Send("5") ;switch to hoe
+	Send("8") ;switch to hoe
 	Sleep(200)
 	RightClick()
 	Sleep(200)
-	Send("6") ;switch to shovel
+	Send("9") ;switch to shovel
 	Sleep(200)
 	DestroyBlock()
 	Sleep(500)
@@ -86,17 +90,16 @@ Func MakeCorse()
 	
 EndFunc
 
-Global $cursorAX = 960, $cursorAY = 551
-Global $i = 0
 
 Sleep(3000)
 While 1
 Global $i = 0
-	While $i <= 6
+	While $i <= 64
 		CorseToDirt()
 		$i = $i + 1
 	WEnd
-	MakeCorse()
+	$j = $j + 1
+	;MakeCorse()
 WEnd
 
 
