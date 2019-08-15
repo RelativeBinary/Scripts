@@ -1,27 +1,16 @@
 HotKeySet("{ESC}", "Terminate")
 
 Func SleepMins($num)
-	Sleep(Number($num) * 60 * 1000)
+	Sleep(Number($num) * 70 * 1000)
 EndFunc
-
+Global $inventory_location = 9
+Global $time = 3
+Sleep(3000)
 While 1
-$value = 4
-SleepMins($value)
-Send("8")
-SleepMins($value)
-Send("7")
-SleepMins($value)
-Send("6")
-SleepMins($value)
-Send("5")
-SleepMins($value)
-Send("4")
-SleepMins($value)
-Send("3")
-SleepMins($value)
-Send("2")
-SleepMins($value)
-Send("1")
+MouseDown("left")
+Send($inventory_location)
+SleepMins($time)
+$inventory_location = $inventory_location - 1
 WEnd
 
 Func Terminate()
